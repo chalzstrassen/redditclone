@@ -4,6 +4,21 @@ class User < ActiveRecord::Base
   validates :session_token, presence: true, uniqueness: true
   validates :password_digest, presence: true
 
+  has_many(
+    :subs,
+    class_name: "Sub",
+    foreign_key: :user_id,
+    primary_key: :id
+  )
+
+  has_many(
+    :posts,
+    class_name: "Post",
+    foreign_key: :user_id,
+    primary_key: :id,
+    dependent: :destroy
+  )
+
   after_initialize :ensure_token
 
   def self.find_by_credentials(username, password)
