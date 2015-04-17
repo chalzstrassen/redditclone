@@ -1,0 +1,21 @@
+<h1>New Post</h1>
+
+<% if post.persisted? %>
+<form action="<%= post_url(post) %>" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+<% else %>
+<form action="<%= posts_url %>" method="post">
+<% end %>
+  <%= auth_token %>
+  <label>Title</label>
+  <input type="text" name="post[title]" value="<%= post.title %>">
+  <br>
+  <label>Content</label>
+  <textarea name="post[content]" rows="8"
+      cols="40" value="<%= post.description"></textarea>
+  <br>
+  <label>Link</label>
+  <input type="text" name="post[url_attrib]" value="<%= post.url_attrib %>">
+  <br>
+  <input type="hidden" name="post[user_id]" value="<%= current_user.id %>">
+</form>

@@ -11,7 +11,7 @@ class SubsController < ApplicationController
 
   def create
     @sub = Sub.new(sub_params)
-    if new_sub.save
+    if @sub.save
       redirect_to sub_url(@sub)
     else
       flash.now[:errors] = @sub.errors.full_messages
@@ -21,6 +21,7 @@ class SubsController < ApplicationController
 
   def show
     @sub = Sub.find(params[:id])
+    @posts = @sub.posts
   end
 
   def edit

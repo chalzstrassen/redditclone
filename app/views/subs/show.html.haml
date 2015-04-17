@@ -1,0 +1,20 @@
+%h1
+  = @sub.title
+
+%p
+  = @sub.description
+%ul
+  mod:
+  %a{href: user_url(@sub.mod)}
+    = @sub.mod.username
+
+- if logged_in?
+  %a{href: new_post_url}
+    create post
+  - if current_user == @sub.mod
+    %a{href: edit_sub_url(@sub)}
+      edit sub
+
+- @posts.each do |post|
+  %a{href: post_url(post)}
+    = post.title
