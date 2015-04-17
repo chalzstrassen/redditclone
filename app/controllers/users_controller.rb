@@ -36,10 +36,5 @@ class UsersController < ApplicationController
       User.find(params[:id]).destroy
       redirect_to :new
     end
-  end
-
-  private
-    def user_params
-      params.require(:user).permit(:username, :password)
-    end
+  end    
 end

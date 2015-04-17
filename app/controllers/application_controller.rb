@@ -26,4 +26,9 @@ class ApplicationController < ActionController::Base
   def logout!
     session[:session_token] = nil
   end
+
+  private
+    def user_params
+      params.require(:user).permit(:username, :password)
+    end
 end
