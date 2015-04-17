@@ -3,6 +3,18 @@
     =auth_token
     %input{:type => "hidden", :name => "_method", :value => "delete"}
     %button logout
+  %a{href: user_url(current_user) }
+    My profile
+  %a{href: new_sub_url}
+    create new sub
 -else
   %a{:href => new_session_url}
     log in
+
+%a{ href: subs_url }
+  view all subs
+
+
+  -# -All subs: link to Subs controller index action
+  -#
+  -# -Create subs: logged in users can do dis.

@@ -1,0 +1,12 @@
+%h1 Create a new Sub
+
+%form{action: subs_url, method: "POST"}
+  =auth_token
+  %label Title
+  %input{type: "text", name: "sub[title]"}
+  <br>
+  %label Description
+  %textarea{name: "sub[description]"}
+  <br>
+  %input{type: "hidden", name: "sub[user_id]", value: current_user.id }
+  %button Submit
