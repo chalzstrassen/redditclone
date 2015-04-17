@@ -1,10 +1,12 @@
 class PostsController < ApplicationController
   def new
     @post = Post.new
+    @post.sub_id = params[:sub_id]
   end
 
   def create
     @post = Post.new(post_params)
+    @post.sub_id = params[:sub_id]
     if @post.save
       redirect_to post_url(@post)
     else
@@ -23,6 +25,7 @@ class PostsController < ApplicationController
 
   def update
     @post = Post.find(params[:id])
+    @post.sub_id = params[:sub_id]
     if @post.update(post_params)
       redirect_to post_url(@post)
     else

@@ -1,0 +1,23 @@
+<% if post.persisted? %>
+<form action="<%= sub_post_url(post) %>" method="post">
+  <input type="hidden" name="_method" value="PATCH">
+<% else %>
+<form action="<%= sub_posts_url(post.sub) %>" method="post">
+<% end %>
+  <%= auth_token %>
+  <label>Title</label>
+  <input type="text" name="post[title]" value="<%= post.title %>">
+  <br>
+  <label>Content</label>
+  <textarea name="post[content]" rows="8"
+      cols="40" value="<%= post.content %>"></textarea>
+  <br>
+  <label>Link</label>
+  <input type="text" name="post[url_attrib]" value="<%= post.url_attrib %>">
+  <br>
+  <input type="hidden" name="post[user_id]" value="<%= current_user.id %>">
+  <br>
+
+  <br>
+  <button>Submit</button>
+</form>

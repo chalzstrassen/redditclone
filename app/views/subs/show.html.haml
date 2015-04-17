@@ -9,7 +9,7 @@
     = @sub.mod.username
 
 - if logged_in?
-  %a{href: new_post_url}
+  %a{href: new_sub_post_url(@sub)}
     create post
   - if current_user == @sub.mod
     %a{href: edit_sub_url(@sub)}
