@@ -27,7 +27,7 @@ class PostsController < ApplicationController
       redirect_to post_url(@post)
     else
       flash.now[:errors] = @post.errors.full_messages
-      render :new
+      render :edit
     end
   end
 
