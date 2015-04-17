@@ -10,6 +10,8 @@ class User < ActiveRecord::Base
     SecureRandom.urlsafe_base64
   end
 
+  attr_reader :password
+
   def ensure_token
     self.session_token ||= User.generate_session_token
   end
