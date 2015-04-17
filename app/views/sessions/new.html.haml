@@ -1,0 +1,12 @@
+%h1 Log in
+%form{:action => sessions_url, method: "post" }
+  =auth_token
+  %label User name
+  <br>
+  %input{name: "user[username]", type: "text"}
+  <br>
+  %label Password
+  <br>
+  %input{name: "user[password]", type: "password"}
+  <br>
+  %button Submit

@@ -1,0 +1,8 @@
+-if logged_in?
+  %form{:action => session_url(session), :method => "post"}
+    =auth_token
+    %input{:type => "hidden", :name => "_method", :value => "delete"}
+    %button logout
+-else
+  %a{:href => new_session_url}
+    log in
