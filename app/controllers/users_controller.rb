@@ -31,6 +31,11 @@ class UsersController < ApplicationController
       flash.now[:errors] = user.errors.full_messages
       render :edit
     end
+
+    def destroy
+      User.find(params[:id]).destroy
+      redirect_to :new
+    end
   end
 
   private
